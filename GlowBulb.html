@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Bulb Toggle</title>
+    <style>
+        body {
+            background-color: #f5deb3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .toggle-scene {
+            position: relative;
+            height: 50vmin;
+        }
+
+        .lightbulb {
+            width: 50px;
+            height: 80px;
+            background-color: #999;
+            border-radius: 50% 50% 40% 40%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .lightbulb.on {
+            background-color: #fffa65;
+            box-shadow: 0 0 20px 10px #fffa65;
+        }
+
+        .lightbulb::after {
+            content: "";
+            width: 15px;
+            height: 20px;
+            background: gray;
+            position: absolute;
+            bottom: -15px;
+            border-radius: 5px;
+        }
+
+        .cord {
+            width: 2px;
+            height: 60px;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
+
+        .knob {
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toggle-scene">
+        <div class="lightbulb"></div>
+        <div class="cord" onclick="toggleLight()">
+            <div class="knob"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleLight() {
+            const bulb = document.querySelector('.lightbulb');
+            bulb.classList.toggle('on');
+        }
+    </script>
+
+</body>
+</html>
